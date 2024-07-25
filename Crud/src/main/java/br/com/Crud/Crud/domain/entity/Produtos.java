@@ -13,10 +13,16 @@ public class Produtos {
 
     private String nome;
     private Integer preco_em_centavos;
+    private Boolean active;
+
+    public Produtos() {
+
+    }
 
     public Produtos (RequestProduto requestProduto) {
         this.nome = requestProduto.nome();
         this.preco_em_centavos = requestProduto.preco_em_centavos();
+        this.active = true;
     }
 
     public long getId() {
@@ -41,5 +47,13 @@ public class Produtos {
 
     public void setPreco_em_centavos(Integer preco_em_centavos) {
         this.preco_em_centavos = preco_em_centavos;
+    }
+
+    public Boolean getActive() {
+        return active;
+    }
+
+    public void setActive(Boolean active) {
+        this.active = active;
     }
 }
