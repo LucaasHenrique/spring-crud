@@ -33,10 +33,10 @@ public class ProductController {
         return ResponseEntity.ok().build();
     }
 
-    @PutMapping
+    @PutMapping("/{id}")
     @Transactional
-    public ResponseEntity updateProduto(@RequestBody @Valid RequestProduto data) {
-        Optional<Produtos> produto = pr.findById(data.id());
+    public ResponseEntity updateProduto(@PathVariable long id, @RequestBody @Valid RequestProduto data) {
+        Optional<Produtos> produto = pr.findById(id);
         if(produto.isPresent()) {
             Produtos produto1 = produto.get();
             produto1.setNome(data.nome());
